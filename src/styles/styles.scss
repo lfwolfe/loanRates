@@ -15,17 +15,21 @@ body {
   -moz-font-smoothing: antialiased;
   font-smoothing: antialiased;
   font-weight: 300;
+
+  .loan-table{
+    border: 1px solid #4d4d4d;
+    display: table;
+    margin: 5px;
+
+    .table-row {
+      display: table-row;
+
+      .table-cell {
+        display: table-cell;
+        padding: 0 5px;
+      }
+    }
+  }
 }
 
-td {
-	padding: 12px;
-}
 
-h2 {
-	color: red;
-}
-
-.savings { color: $vin-green; }
-.loss { color: $vin-red; }
-input.small { width: 46px; }
-td.fuel-savings-label { width: 175px; }
