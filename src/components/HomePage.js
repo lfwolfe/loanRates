@@ -80,21 +80,24 @@ export default class HomePage extends React.Component {
     return (
       <div className="home-page">
         <h1>Today&#39;s Mortgage Rates</h1>
-        <input type="text" placeholder="loan amount" id="loan-amount" onChange={this.loanAmountHandler}/>
-        <button className="get-rates" onClick={this.getRates}>get latest rates</button>
-        <label htmlFor="sort" className="sort-label">Sort by:</label>
-        <select name="" id="sort" className="sort-by" onChange={this.sortBy}>
-          <option value="monthly_payment" className="sort-by-option">Monthly Payment</option>
-          <option value="interest_rate" className="sort-by-option">Interest Rate</option>
-          <option value="loan_term" className="sort-by-option">Loan Term</option>
-        </select>
-        <label htmlFor="sort" className="sort-label">Filter by:</label>
-        <select name="" id="sort" className="sort-by" onChange={this.filterBy}>
-          <option value="" className="sort-by-option">--none--</option>
-          <option value="FNMA15YRFXCF" className="sort-by-option">15 year fixed</option>
-          <option value="FNMA30YRFXCF" className="sort-by-option">30 year fixed</option>
-          <option value="FNMA71ARMCF" className="sort-by-option">7/1 ARM</option>
-        </select>
+        <div className="controls">
+          <input type="text" placeholder="loan amount" id="loan-amount" onChange={this.loanAmountHandler}/>
+          <button className="get-rates" onClick={this.getRates}>get latest rates</button>
+          <label htmlFor="sort" className="sort-label">Sort by:</label>
+          <select name="" id="sort" className="sort-by" onChange={this.sortBy}>
+            <option value="monthly_payment" className="sort-by-option">Monthly Payment</option>
+            <option value="interest_rate" className="sort-by-option">Interest Rate</option>
+            <option value="loan_term" className="sort-by-option">Loan Term</option>
+          </select>
+          <label htmlFor="sort" className="sort-label">Filter by:</label>
+          <select name="" id="sort" className="sort-by" onChange={this.filterBy}>
+            <option value="" className="sort-by-option">--none--</option>
+            <option value="FNMA15YRFXCF" className="sort-by-option">15 year fixed</option>
+            <option value="FNMA30YRFXCF" className="sort-by-option">30 year fixed</option>
+            <option value="FNMA71ARMCF" className="sort-by-option">7/1 ARM</option>
+          </select>
+        </div>
+
         {rates.length > 0 && (
           <div>{this.loanTable(rates)}</div>
         )}

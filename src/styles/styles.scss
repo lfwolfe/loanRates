@@ -16,7 +16,11 @@ body {
   font-smoothing: antialiased;
   font-weight: 300;
 
+  .controls {
+    white-space: nowrap;
+  }
   .get-rates {
+    background-color: lightblue;
     margin: 0 0 0 5px;
   }
 
@@ -27,6 +31,7 @@ body {
     border: 1px solid #4d4d4d;
     display: table;
     margin: 5px 0px;
+    width: 100%;
 
     .table-row {
       display: table-row;
