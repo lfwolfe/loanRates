@@ -24,6 +24,14 @@ export default class HomePage extends React.Component {
   loanTable = (loans) => {
     return (
       <div className="loan-table">
+        <div className="table-row">
+          <div className="table-cell">Bank Name</div>
+          <div className="table-cell">Product</div>
+          <div className="table-cell">Interest Rate</div>
+          <div className="table-cell">Loan Term</div>
+          <div className="table-cell">Monthly Payment</div>
+          <div className="table-cell">Rate Type</div>
+        </div>
         {loans.map(loan =>{
           return this.getTableRow(loan);
         })}
@@ -32,13 +40,18 @@ export default class HomePage extends React.Component {
   };
 
   getTableRow = row => {
+    const loanProductMap = {
+      FNMA15YRFXCF:'15 year fixed Rate',
+      FNMA30YRFXCF:'30 year fixed Rate',
+      FNMA71ARMCF: '7/1 ARM'
+    };
     return (
       <div className="table-row">
         <div className="table-cell">{row.lender.name}</div>
-        <div className="table-cell">{row.loan_product}</div>
-        <div className="table-cell">{row.interest_rate}</div>
+        <div className="table-cell">{loanProductMap[row.loan_product]}</div>
+        <div className="table-cell">{`${(row.interest_rate*100).toFixed(2)}%`}</div>
         <div className="table-cell">{row.loan_term}</div>
-        <div className="table-cell">{row.monthly_payment}</div>
+        <div className="table-cell">{`$${row.monthly_payment}`}</div>
         <div className="table-cell">{row.rate_type}</div>
       </div>)
   }
