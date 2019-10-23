@@ -5,7 +5,7 @@ $vin-red: #ff0000;
 
 /* Styles */
 body {
-  font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font: 12px 'Helvetica Neue', Helvetica, Arial, sans-serif;
   line-height: 1.4em;
   color: #4d4d4d;
   min-width: 230px;
@@ -16,17 +16,29 @@ body {
   font-smoothing: antialiased;
   font-weight: 300;
 
-  .loan-table{
+  .get-rates {
+    margin: 0 0 0 5px;
+  }
+
+  .sort-label {
+    margin: 0 5px 0 10px;
+  }
+  .loan-table {
     border: 1px solid #4d4d4d;
     display: table;
-    margin: 5px;
+    margin: 5px 0px;
 
     .table-row {
       display: table-row;
 
       .table-cell {
         display: table-cell;
-        padding: 0 5px;
+        padding: 5px;
+
+        &.header {
+          color: #030303;
+          font-weight: bolder;
+        }
       }
     }
   }
