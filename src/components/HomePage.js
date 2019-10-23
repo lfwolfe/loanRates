@@ -1,18 +1,32 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const HomePage = () => {
-  return (
-    <div>
-      <h1>React Slingshot</h1>
+export default class HomePage extends React.Component {
+  static propTypes = {
+    getMortgageRates: PropTypes.func.isRequired,
+  };
 
-      <h2>Get Started</h2>
-      <ol>
-        <li>Review the <Link to="/fuel-savings">demo app</Link></li>
-        <li>Remove the demo and start coding: npm run remove-demo</li>
-      </ol>
-    </div>
-  );
-};
+  static defaultProps = {};
 
-export default HomePage;
+  state = {};
+
+  getRates = () => {
+    const {getMortgageRates} = this.props;
+    const {amount} = this.state;
+    getMortgageRates(amount);
+  };
+
+  loanAmountHandler = e => {
+    this.setState({amount: e.target.value})
+  };
+
+  render() {
+    return (
+      <div className="home-page">
+        <h1>HomePage</h1>
+        <input type="text" id="loan-amount" onChange={this.loanAmountHandler}/>
+        <button onClick={this.getRates}/>
+      </div>
+    );
+  }
+}
