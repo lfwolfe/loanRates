@@ -15,7 +15,7 @@ export default class HomePage extends React.Component {
   getRates = () => {
     const {getMortgageRates} = this.props;
     const {amount} = this.state;
-    const match = /[\$,]/g;
+    const match = /[$,]/g;
     let cleanAmount = amount.replace(match, '');
     getMortgageRates(cleanAmount);
   };
