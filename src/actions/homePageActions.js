@@ -12,7 +12,7 @@ export function getMortgageRates(amount) {
       .then((rates) => {
         dispatch(updateRates(rates));
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err)); // eslint-disable-line no-console
   };
 }
 

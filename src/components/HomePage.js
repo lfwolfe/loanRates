@@ -102,7 +102,7 @@ export default class HomePage extends React.Component {
           <div>{this.loanTable(rates)}</div>
         )}
         {rates.length < 1 && <div>no results</div>}
-        Note: API returns values if loan amount is greater than 100,000
+        Note: API returns rates for loan amounts greater than 100,000
       </div>
     );
   }
