@@ -15,7 +15,7 @@ export default class HomePage extends React.Component {
   getRates = () => {
     const {getMortgageRates} = this.props;
     const {amount} = this.state;
-    const match = /,/g;
+    const match = /[\$,]/g;
     let cleanAmount = amount.replace(match, '');
     getMortgageRates(cleanAmount);
   };
@@ -102,7 +102,7 @@ export default class HomePage extends React.Component {
           <div>{this.loanTable(rates)}</div>
         )}
         {rates.length < 1 && <div>no results</div>}
-        Note: API returns rates for loan amounts greater than 100,000
+        Note: API returns rates for loan amounts greater than $100,000
       </div>
     );
   }
