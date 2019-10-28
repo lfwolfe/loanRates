@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { hot } from "react-hot-loader";
 import HomePageContainer from "./containers/HomePageContainer";
+import HomePage2 from "./HomePage2";
 
 // This is a class-based component because the current
 // version of hot reloading won't hot reload a stateless
@@ -17,6 +18,7 @@ class App extends React.Component {
       <div>
         <Switch>
           <Route exact path="/" component={HomePageContainer} />
+          <Route exact path="/hooks" component={HomePage2} />
           <Route component={NotFoundPage} />
         </Switch>
       </div>
