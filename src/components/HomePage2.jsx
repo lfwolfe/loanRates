@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import _ from "lodash";
 import nextId from "react-id-generator";
 
@@ -8,14 +8,6 @@ const HomePage2 = props => {
   const [amount, setAmount] = useState("");
   const [rates, setRates] = useState([]);
 
-  const getRates = () => {
-    const match = /[$,]/g;
-    let cleanAmount = amount.replace(match, "");
-    useFetch(cleanAmount);
-  };
-
-  const loanAmountHandler = e => {
-    setAmount(e.target.value);
   };
 
   const loanTable = loans => {
@@ -74,10 +66,10 @@ const HomePage2 = props => {
   async function useFetch(amount) {
     // const resp = await fetch(`http://morty.mockable.io/quotes?loan_amount=${amount}`);
     const resp = await fetch(
-      `https://mockserverforloanrates.free.beeceptor.com?loan_amount=${amount}`
+      `https://mockserverforloanrates.free.beeceptor.com/quotes?loan_amount=200000`
     );
     const json = await resp.json();
-    setRates(json);
+    setRates(json.rates);
     return amount;
   }
   return (
@@ -125,6 +117,7 @@ const HomePage2 = props => {
           </option>
         </select>
       </div>
+      {/* {console.log(rates.rates)} */}
       {rates.length > 0 && <div>{loanTable(rates)}</div>}
       {rates.length < 1 && <div>no results</div>}
       Note: API returns rates for loan amounts greater than $100,000
